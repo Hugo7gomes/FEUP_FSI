@@ -1,9 +1,9 @@
 
 Breve descrição do grupo
 
-* Turno: [LM]XX
-* Grupo: YY
+* Turno: [LM]08
+* Grupo: 08
 * Alunos:
-    - Aluno1 upZZZZZ 
-    - Aluno2 upZZZZZ
-    - Aluno3 upZZZZZ
+    - Hugo Gomes up202004343
+    - João Moreira up202005035
+    - Lia Vieira up202005042
