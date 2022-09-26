@@ -1,7 +1,7 @@
 
 Breve descrição do grupo
 
-* Turno: [LM]08
+* Turno: 08
 * Grupo: 08
 * Alunos:
     - Hugo Gomes up202004343
