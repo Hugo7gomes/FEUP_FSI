@@ -9,7 +9,7 @@
 
 ## Catalogação
 
-- Found by Tom Tervoort of Secura, in September 2019, with a cvss score of 9.3/10. 
+- Found by Tom Tervoort of Secura, in September 2019 and only patched by the end of 2020, with a cvss score of 9.3/10 due to the fact that the system is totally compromised and there's full access to the system by the attacker. 
 - Microsoft patched this exploit in two phases: the first one on August 11th 2020 which adressed the security issue in Active directory domains and trusts, as well as Windows devices.
 - The second patch occurred on February 9th 2021 in which enforcement mode was enabled on all Windows Domain Controllers.
 
