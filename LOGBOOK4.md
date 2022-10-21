@@ -1,9 +1,13 @@
 # Tasks for week \#4
 
 - **Task 1**:
-![task1.1](docs/logbook4/task1_ph1.png)
-![task1.2](docs/logbook4/task1_ph2.png)
-![task1.3](docs/logbook4/task1_ph3.png)
+  - Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer.
+  - Using the command printenv we can list all environment variables.
+  ![task1.1](docs/logbook4/task1_ph1.png)
+  ![task1.2](docs/logbook4/task1_ph2.png)
+  - Using export and unset we can set or unset envorinment variables.
+  - In this screenshot we show how to set a environment variable **OURENV** to the value "G0808" using **export** and also how to unset it using the command **unset**
+  ![task1.3](docs/logbook4/task1_ph3.png)
 
 - **Task 2**:
   - First, we executed the code, printing the environment variables for the child proccess (childEnv).
@@ -25,11 +29,13 @@
 ![task4](docs/logbook4/task4_ph1.png)
 
 - **Task 5**:
-  - Only the PATH and ANY_NAME variables set in the shell process got into the Set-UID child process. That didn't happen with the LD_LIBRARY variable.
+  - After compiling and setting this program as a SET-UID program we set the LD_LIBRARY_PATH and ANY_NAME environment variables to "something" and "else",respectively.
+  - Since we are executing a program with root privileges in a user account some environment variables will not be exported. As we can see in the screenshot only the ANY_NAME environment variable was exported correctly to "else".
+  - DESTACAR AS VARIAVEIS DE AMBIENTE INTERESSANTES NAS FOTOS
 
 ![task5.1](docs/logbook4/task5_ph1.png)
 ![task5.2](docs/logbook4/task5_ph2.png)
 ![task5.3](docs/logbook4/task5_ph3.png)
 - **Task 6**:
-  - Only the PATH and ANY_NAME variables set in the shell process got into the Set-UID child process. That didn't happen with the LD_LIBRARY variable.
+  - 
   
