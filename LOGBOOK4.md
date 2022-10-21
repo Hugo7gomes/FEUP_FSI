@@ -1,5 +1,50 @@
 # Tasks for week \#4
 
+## CTF
+
+### Challenge 1
+
+After exploring the website, we found some important information about versions, plugins installed and the active accounts on the website.
+
+Regarding the version and plugins installed:
+![ctf1](docs/logbook4/ctf_ph1.png)
+
+```
+Active users:
+- admin
+- Orval Sanford
+```
+
+With some research on CVE databases, we found a vulnerability in the Booster for WooComerce plugin, which was the one used to attack the website. The CVE was `CVE-2021-34646`, with a CVSS score of 7.5 according to the website https://www.cvedetails.com. 
+
+This vulnerability focus in the process_email_verification function due to a random token generation weakness in the reset_and_mail_activation_link.
+This allows attackers to impersonate users, including administrative accounts and automatically be logged in as that user.
+
+Flag:
+```
+flag{CVE-2021-34646}
+```
+
+### Desafio 2
+
+With some research, we found an exploit, https://www.exploit-db.com/exploits/50299, and just followed the instructions given.
+![ctf2](docs/logbook4/ctf_ph2.png)
+
+Running the script, we get this:
+![ctf2](docs/logbook4/ctf_ph3.png)
+
+After logging in, we only needed to head to the following page http://ctf-fsi.fe.up.pt:5001/wp-admin/edit.php, where we found a private post with the flag.
+
+
+Flag:
+```
+flag{please don’t bother me}
+```
+
+---
+
+## Environment Variable and Set-UID Program Lab
+
 - **Task 1**:
   - Environment variables are a set of dynamic named values that can affect the way running processes will behave on a computer.
   - Using the command printenv we can list all environment variables.
