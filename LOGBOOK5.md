@@ -6,12 +6,14 @@
 
 - After looking at the program source code we verified that we could cause a buffer overflow in the scanf function through the buffer. Thus, a chain of 20 random chars was created to fill the buffer in addition to 8 chars to replace "mem.txt" for the desired name "flag.txt". Changing the "mem.txt" we manipulate which file is going to be open.
 
+![ctf1.1](docs/logbook5/ctf_ph1.png)
 
 ### Challenge 2
 
 - After looking at the program source code we verified that in addition to a 20 chars buffer and a 8 chars buffer with the name of the file that is going to be open, there is also a 4 char buffer (val) with the value "\xef\xbe\xad\xde". To execute the part of the program which opens the file, the following condition must be fulfilled (*(int*)val == 0xfefc2223). Thus, when causing buffer overflow in the scanf function, the val buffer has to be filled with the value "\x23\x22\xfc\xfe". To sum up, our overflow payload will be filled with 20 random chars, the value "\x23\x22\xfc\xfe" and the name of the file we want to open "flag.txt".
 
-
+![ctf2.1](docs/logbook5/ctf_ph2.png)
+![ctf2.2](docs/logbook5/ctf_ph3.png)
 ---
 
 ## Buffer Overflow Setuid Lab
