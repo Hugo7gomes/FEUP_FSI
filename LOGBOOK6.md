@@ -25,7 +25,7 @@
 
 
 - **Task 3b**:
-    - The purpose of this task was to change the target value to 0x5000. First, we set the first 4 bytes of our payload as the first bytes of the target address given. Then, the payload was filled with 63 "%x" format specifiers and a "%n" which causes printf to load the number of characters that have been printed by printf before the "%n".
+    - The purpose of this task was to change the target value to 0x5000. As we explained in task3a "%n" loads the number of characters that have been printed by printf before the "%n". Therefore, to change the target value to 0x5000 we need to print 20480 characters before the "%n". However, the maximum number of characters that we can input is 1500. In order to print 20480 characters we printed 63 "%x": the first 62 with 10 of left-pad and the last one with 19852. To that we add the 8 characters of the target's address. In total, it adds up to 20480 bytes which represents 0x5000 in hexadecimal. 
 
 
 
