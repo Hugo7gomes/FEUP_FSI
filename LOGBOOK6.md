@@ -32,7 +32,7 @@ This way, we built the payload with the flag's address in descending order and w
 
 We started by doing the same procedure as we did in the first challenge: executing the checksec and we got the same result.
 
-![ctf2.1](docs/logbook6/ctf1_ph1.png)
+![ctf2.1](docs/logbook6/ctf2_ph1.png)
 
 By analising the source code, it is possible to conclude that the vulnerability is located in the following piece of code:
 
@@ -49,6 +49,9 @@ The main objective of this ctf is to change the value of the global variable 'ke
 In order to launch a shell, we need to change the value of the variable key to '0xbeef', which in decimal represents 48879. This way, we built our payload with the key's memory address in the first 4 bytes, followed by '%x' with a left pad of (48879 - 4) that equals to 48875. Then, we use the '%n' in order for the printf to load the number of printed characters until that moment to the address of the variable key.
 
 To conclude, we executed the exploit with success and launched a shell where the file 'flag.txt' is located
+
+![ctf2.3](docs/logbook6/ctf2_ph3.png)
+
 ## Format Strings Seed Labs
 
 - **Task 1**:
