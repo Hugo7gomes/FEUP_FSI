@@ -3,9 +3,52 @@
 ## CTF
 
 ### Challenge 1
+To begin with, we executed the command and got the following result:
 
+![ctf1.1](docs/logbook6/ctf1_ph1.png)
 
+We can conclude that:
+    - There is a canary preventing the change of the return address of functions (or at least making it harder)
+    - The stack has execution permission (NX) - We can execute code that we inject (e.g.: shellcode)
+    - The position on the binary aren't randomized (PIE) - we can get the addresses of variables/registers using a debugger.
 
+By analising the source code, it is possible to conclude that the vulnerability is located in the following piece of code:
+
+```c
+scanf("%32s", &buffer);
+...
+printf(buffer);
+```
+The main objective of this ctf is to find out the value of the global variable 'flag'. Through the gdb, we found out the flag's memory address:
+
+![ctf1.2](docs/logbook6/ctf1_ph2.png)
+sublinhar endereço de memoria 
+
+This way, we built the payload with the flag's address in descending order and with a '%s'. Thus, the printf command will acknowledge the flag's memory address as a pointer to a string.
+
+![ctf1.3](docs/logbook6/ctf1_ph3.png)
+
+### Challenge 2
+
+We started by doing the same procedure as we did in the first challenge: executing the checksec and we got the same result.
+
+![ctf2.1](docs/logbook6/ctf1_ph1.png)
+
+By analising the source code, it is possible to conclude that the vulnerability is located in the following piece of code:
+
+```c
+scanf("%32s", &buffer);
+...
+printf(buffer);
+```
+
+The main objective of this ctf is to change the value of the global variable 'key' in order to raise a shell. By gaining access to the shell, we will be able to open the flag.txt file. Through the gdb, we found out the key's memory address:
+
+![ctf2.2](docs/logbook6/ctf2_ph2.png)
+
+In order to launch a shell, we need to change the value of the variable key to '0xbeef', which in decimal represents 48879. This way, we built our payload with the key's memory address in the first 4 bytes, followed by '%x' with a left pad of (48879 - 4) that equals to 48875. Then, we use the '%n' in order for the printf to load the number of printed characters until that moment to the address of the variable key.
+
+To conclude, we executed the exploit with success and launched a shell where the file 'flag.txt' is located
 ## Format Strings Seed Labs
 
 - **Task 1**:
