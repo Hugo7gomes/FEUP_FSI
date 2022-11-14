@@ -10,6 +10,7 @@
 
 - **Task 1**:
     - The purpose of this task is to create a payload so that when the function myprintf is executed the server crashes. By analysing the program code, we verified that the function myprintf uses the function printf without format specifier. Thus, creating a payload with various "%.8x" and passing to the fuction myprintf the server will crash.
+    
 ![task1.1](docs/logbook6/task1_ph1.png)
 
 ![task1.2](docs/logbook6/task1_ph2.png)
