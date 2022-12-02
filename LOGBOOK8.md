@@ -1,5 +1,37 @@
 # Tasks for week \#7
 
+## CTF
+
+### Challenge 1
+
+-The goal of this task is to bypass a simple login panel. After analyzing the source code, we found a vulnerability in the following query:
+
+![ctf1.1](docs/logbook7/ctf1_ph1.png)
+
+- In this code, username and password variables are passed without sinatization to the query.
+- In order to exploit this vulnerability, we placed the following input on the username field
+
+![ctf1.2](docs/logbook7/ctf1_ph2.png)
+
+- After that, we successfully logged in as admin and extracted the flag:
+
+![ctf1.3](docs/logbook7/ctf1_ph3.png)
+
+### Challenge 2
+
+- To solve this challenge we started by running checksec and got the following result:
+
+![ctf2.1](docs/logbook7/ctf2_ph1.png)
+
+- After analyzing the source code, we found a buffer overflow vulnerability in the gets function. This function doesn't check boundaries, this way we can send a payload bigger than 100 bytes. To execute the overflow, we need to overwrite the return address to an address in the stack where our shellcode is. 
+
+- We use the following python script to exploit this vulnerability:
+
+![ctf2.2](docs/logbook7/ctf2_ph2.png)
+
+- A shell is raised and using the command <kbd>cat flag.txt</kbd> we get the flag.
+
+![ctf2.3](docs/logbook7/ctf2_ph3.png)
 
 ## SQL Injection Seed Labs
 
@@ -17,7 +49,7 @@
 ![task2.1](docs/logbook7/task2_ph1.png)
 ![task2.2](docs/logbook7/task2_ph2.png)
 - **Task 2.2**:
-    - The objective of this task is the same as the one presented previously, although we will use a http request. We used the same parameters, resulting in the following request: 
+    - The purpose of this task is the same as the one previously presented, although we will use a http request. We used the same parameters, resulting in the following request: 
     ```
     curl http://www.seed-server.com/unsafe_home.php?username=admin%27or%271%27%3D%271&Password=1234
     ```
