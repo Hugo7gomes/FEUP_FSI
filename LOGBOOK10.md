@@ -1,5 +1,11 @@
 # Tasks for week \#9 and \#10
 
+##CTF
+
+- **Task 1**:
+    - The purpose of this task is to catch the flag. Because the forms has a XSS vulnerability, we can inject JavaScript code that when the admin checks the page, clicks on the button and the flag appears.
+    
+
 
 ## Cross-Site Scripting (XSS) Attack Lab
 
