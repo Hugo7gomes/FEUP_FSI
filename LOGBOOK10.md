@@ -4,7 +4,15 @@
 
 - **Task 1**:
     - The purpose of this task is to catch the flag. Because the forms has a XSS vulnerability, we can inject JavaScript code that when the admin checks the page, clicks on the button and the flag appears.
-    
+![ctf1.1](docs/logbook10/ctf10_1.1.png)
+![ctf1.2](docs/logbook10/ctf10_1.2.png)
+![ctf1.3](docs/logbook10/ctf10_1.3.png)
+
+- **Task 2**:
+    - The functionalities that the web application provides are log in, ping a host and watch a gif on speed test. After somes tests we verified that the ping functionality uses the linux ping command. This way we can inject a shell comand to get the flag (cat /flags/flag.txt)
+![ctf2.1](docs/logbook10/ctf10_2.1.png)
+![ctf2.2](docs/logbook10/ctf10_2.2.png)
+![ctf2.3](docs/logbook10/ctf10_2.3.png)
 
 
 ## Cross-Site Scripting (XSS) Attack Lab
