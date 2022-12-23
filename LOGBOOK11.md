@@ -1,6 +1,6 @@
 # Tasks for week \#12 and \#13
 
-##PKI LAB
+## PKI LAB
 
 - **Task 1**
     - In this lab, we need to create digital certificates- We will become a root CA ourselves, and then use this CA to issue certificate for others.
@@ -334,6 +334,66 @@ create our own directory.
     - Step 3:
         - Browse www.instagram.com and the browser displays the following warning:
         ![task5.3](docs/logbook11/task5.3.png)
+
+- **Task 6**    
+    - To achieve a Man in the Middle attack, we need to create the certificate that includes the www.instagram.com address. This can be achieved by the following command:
+
+[12/12/22]seed@VM:~/.../PKI$ openssl req -newkey rsa:2048 -sha256 -keyout server.key -out seGenerating a RSA private key
+............................+++++
+......................................+++++
+writing new private key to 'server.key'
+-----
+
+    - Then we need to generate the certificate with the following command:
+
+```
+[12/12/22]seed@VM:~/.../PKI$ openssl ca -config openssl.cnf -policy policy_anything -md sha2Using configuration from openssl.cnf
+Enter pass phrase for ca.key:
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+Serial Number: 4101 (0x1005)
+Validity
+Not Before: Dec 12 11:39:03 2022 GMT
+Not After : Dec 9 11:39:03 2032 GMT
+Subject:
+countryName = PT
+organizationName = Brufrin2022 Inc.
+commonName = www.twitter.com
+X509v3 extensions:
+X509v3 Basic Constraints:
+CA:FALSE
+Netscape Comment:
+OpenSSL Generated Certificate
+X509v3 Subject Key Identifier:
+C3:EC:0F:62:65:D6:7D:BC:A0:83:3A:EE:27:6F:65:13:04:B8:0C:00
+X509v3 Authority Key Identifier:
+keyid:3B:EB:06:9D:23:95:1C:4E:2F:74:51:B5:63:06:8B:F9:C2:8A:46:DC
+X509v3 Subject Alternative Name:
+DNS:www.twitter.com, DNS:www.brufrin2022.com, DNS:www.brufrin2022A.com, DNSCertificate is to be certified until Dec 9 11:39:03 2032 GMT (3650 days)
+Write out database with 1 new entries
+Data Base Updated
+```
+
+- After that, we need to restart our server in order to successfully perform the attack and then update the ssl config file to:
+```
+    <VirtualHost *:443>
+    DocumentRoot /var/www/brufrin2022
+    ServerName www.twitter.com
+    ServerAlias www.brufrin2022.com
+    ServerAlias www.brufrin2022A.com
+    ServerAlias www.brufrin2022B.com
+    DirectoryIndex index.html
+    SSLEngine On
+    SSLCertificateFile /certs/server.crt
+    SSLCertificateKeyFile /certs/server.key
+    </VirtualHost>
+    <VirtualHost *:80>
+    DocumentRoot /var/www/brufrin2022
+    ServerName www.twitter.com
+    DirectoryIndex index_red.html
+    </VirtualHost>
+```
 
 
 
