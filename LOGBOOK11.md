@@ -1,5 +1,31 @@
 # Tasks for week \#12 and \#13
 
+##CTF
+
+- **Task 1**:
+    - To calculate the prime number greater than 2 ** 152 and 2**153 we use nextprime function from python sympy module.
+    ![ctf1.1](docs/logbook11/ctf1.1.png)
+    ![ctf1.2](docs/logbook11/ctf1.2.png)
+    - To find the value of d we use this mod_inverse function:
+    ![ctf1.3](docs/logbook11/ctf1.3.png)
+    - The final script:
+    ![ctf1.4](docs/logbook11/ctf1.4.png)
+    - Runnig the script and get the flag:
+    ![ctf1.5](docs/logbook11/ctf1.5.png)
+
+
+- **Task 2**:
+    - We start by runnig nc ctf-fsi.fe.up.pt 6001 and got the following result:
+    ![ctf2.1](docs/logbook11/ctf2.1.png)
+    - As we can see the two messages have the same value for N and different E.
+    - To solve this problem we found this python code online:
+    ![ctf2.2](docs/logbook11/ctf2.2.png)
+    ![ctf2.3](docs/logbook11/ctf2.3.png)
+    - After runnig the code we got this output in plain text:
+    ![ctf2.4](docs/logbook11/ctf2.4.png)
+    - To get the flag we need to convert the result:
+    ![ctf2.5](docs/logbook11/ctf2.5.png)
+
 ## PKI LAB
 
 - **Task 1**
