@@ -306,23 +306,23 @@ coefficient:
     - Following the example provided HTTPS we
 create our own directory.
     - Site directory:
-    ![task4.1](docs/logbook11/task4.1.png)
+    ![task4.1](docs/logbook11/task4.0.png)
     - Certs directory:
-    ![task4.2](docs/logbook11/task4.2.png)
+    ![task4.2](docs/logbook11/task4.1.png)
     - bank32_apache_ssl.conf
-    ![task4.3](docs/logbook11/task4.3.png)
+    ![task4.3](docs/logbook11/task4.2.png)
     - Dockerfile files
-    ![task4.4](docs/logbook11/task4.4.png)
+    ![task4.4](docs/logbook11/task4.3.png)
     
     - Build and Start the docker container
-    ![task4.5](docs/logbook11/task4.5.png)
+    ![task4.5](docs/logbook11/task4.4.png)
     - Open shell and start apache service
-    ![task4.6](docs/logbook11/task4.6.png)
+    ![task4.6](docs/logbook11/task4.5.png)
     
     - When we try to enter the website and a warnig pop up appears
-    ![task4.7](docs/logbook11/task4.7.png)
+    ![task4.7](docs/logbook11/task4.6.png)
     - To solve this we need to add our certificate to firefox.After adding we can successfuly visit the site
-    ![task4.8](docs/logbook11/task4.8.png
+    ![task4.8](docs/logbook11/task4.8.png)
 
 - **Task 5**    
     - Step1:
@@ -370,7 +370,7 @@ C3:EC:0F:62:65:D6:7D:BC:A0:83:3A:EE:27:6F:65:13:04:B8:0C:00
 X509v3 Authority Key Identifier:
 keyid:3B:EB:06:9D:23:95:1C:4E:2F:74:51:B5:63:06:8B:F9:C2:8A:46:DC
 X509v3 Subject Alternative Name:
-DNS:www.twitter.com, DNS:www.brufrin2022.com, DNS:www.brufrin2022A.com, DNSCertificate is to be certified until Dec 9 11:39:03 2032 GMT (3650 days)
+DNS:www.instagram.com, DNS:www.bank32.com, DNS:www.bank32.com, DNSCertificate is to be certified until Dec 9 11:39:03 2032 GMT (3650 days)
 Write out database with 1 new entries
 Data Base Updated
 ```
@@ -378,19 +378,19 @@ Data Base Updated
 - After that, we need to restart our server in order to successfully perform the attack and then update the ssl config file to:
 ```
     <VirtualHost *:443>
-    DocumentRoot /var/www/brufrin2022
-    ServerName www.twitter.com
-    ServerAlias www.brufrin2022.com
-    ServerAlias www.brufrin2022A.com
-    ServerAlias www.brufrin2022B.com
+    DocumentRoot /var/www/bank32
+    ServerName www.instagram.com
+    ServerAlias www.bank32.com
+    ServerAlias www.bank32A.com
+    ServerAlias www.bank32B.com
     DirectoryIndex index.html
     SSLEngine On
     SSLCertificateFile /certs/server.crt
     SSLCertificateKeyFile /certs/server.key
     </VirtualHost>
     <VirtualHost *:80>
-    DocumentRoot /var/www/brufrin2022
-    ServerName www.twitter.com
+    DocumentRoot /var/www/bank32
+    ServerName www.instagram.com
     DirectoryIndex index_red.html
     </VirtualHost>
 ```
